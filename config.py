@@ -9,14 +9,7 @@ class Config:
     API_VERSION = "v1"
     OPENAPI_VERSION = "3.0.3"
     SECRET_KEY = os.getenv('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL')
+    SQLALCHEMY_DATABASE_URI = 'mysql://monette:monette_08202003@monette.mysql.pythonanywhere-services.com/monette$keriderya_db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     FLASK_ENV = os.getenv('FLASK_ENV', 'development')
     # SSL settings passed as 'connect_args'
-    SQLALCHEMY_ENGINE_OPTIONS = {
-        'connect_args': {
-            'ssl': {
-                'ca': os.path.join(os.getcwd(), 'app/certs/ca.pem')
-            }
-        }
-    }
