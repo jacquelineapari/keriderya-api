@@ -1,20 +1,15 @@
-from app import db  # Import SQLAlchemy database instance
-from app.models.menu_model import MenuModel  # Import the correct model
+from app import app, db  # Import the app and db instances
+from app.models.menu_model import MenuModel
 
-# Creating dummy data for the menu model
-dummy_data = MenuModel(
-    name="Cheeseburger",  # Adjust fields and data as needed
-    price=200,
-    description="A delicious cheeseburger with all the fixings.",
-    availability=True,
-    restaurant_id=1,  # Use an appropriate restaurant_id
-    category_id=1,    # Use an appropriate category_id
-)
+# Create some dummy data
+dummy_data = MenuModel(name="Sample Menu", price=100, description="Sample description", availability=True, restaurant_id=1, category_id=1)
 
-# Adding the data to the session
-db.session.add(dummy_data)
+# Set up the application context
+with app.app_context():
+    # Add the dummy data to the session
+    db.session.add(dummy_data)
+    
+    # Commit the changes to the database
+    db.session.commit()
 
-# Committing to the database
-db.session.commit()
-
-print("Dummy data added successfully.")
+    print("Dummy data added successfully.")
