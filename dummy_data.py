@@ -1,6 +1,8 @@
 # add dummy data
 from app import db  # Import SQLAlchemy database instance
 from app.models import YourModel  # Replace YourModel with the actual model name
+from app.models.menu_model import MenuModel
+
 
 # Creating dummy data
 dummy_data = YourModel(name="John Doe", email="john.doe@example.com")  # Adjust fields and data as needed
@@ -12,3 +14,4 @@ db.session.add(dummy_data)
 db.session.commit()
 
 print("Dummy data added successfully.")
+
